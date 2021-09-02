@@ -1,14 +1,24 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import React from "react";
 
-export default class Task extends Component {
-    render() {
-        return (
-            <View>
-                <Text> textInComponent </Text>
-            </View>
-        )
-    }
-}
+import { StyleSheet, View, Text } from "react-native";
 
-const styles = StyleSheet.create({})
+const Task = (props) => {
+  const { text } = props;
+
+  return (
+    <View style={styles.container}>
+      <Text>{text}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#90C2E7",
+    borderRadius: 10,
+    minHeight: 35,
+    marginBottom: 10,
+  },
+});
+
+export default Task;
