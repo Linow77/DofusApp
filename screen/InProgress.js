@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 
 import Task from "../components/Task";
@@ -23,13 +24,16 @@ const InProgress = () => {
   };
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.tasksSection}>
-        {tasks.map((item, index) => {
-          return <Task key={index} text={item} />;
-        })}
-      </View>
-
+    <>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.screen}>
+          <View style={styles.tasksSection}>
+            {tasks.map((item, index) => {
+              return <Task key={index} text={item} />;
+            })}
+          </View>
+        </View>
+      </ScrollView>
       <View style={styles.addTaskSection}>
         <TextInput
           style={styles.addInput}
@@ -41,7 +45,7 @@ const InProgress = () => {
           <Text style={styles.addText}>+</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   );
 };
 
@@ -51,7 +55,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
   },
-
+  scrollView: {
+    width: "100%",
+  },
   title: {
     fontSize: 20,
     fontWeight: "bold",

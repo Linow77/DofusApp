@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, NativeModules, Text } from "react-native";
+import { StyleSheet, View, NativeModules } from "react-native";
 
 import { NativeRouter, Route, Link } from "react-router-native";
 

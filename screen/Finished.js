@@ -5,7 +5,7 @@ import { StyleSheet, View, Text } from "react-native";
 const Finished = () => {
   return (
     <View style={styles.screen}>
-      <Text>finished</Text>
+      <Text>coucou loooooooo</Text>
     </View>
   );
 };
