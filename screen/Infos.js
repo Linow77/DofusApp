@@ -1,12 +1,16 @@
 import React from "react";
 
 import { StyleSheet, View, Text } from "react-native";
+import NavBar from "../components/NavBar";
 
 const Infos = () => {
   return (
-    <View style={styles.screen}>
-      <Text>infos</Text>
-    </View>
+    <>
+      <NavBar />
+      <View style={styles.screen}>
+        <Text>infos</Text>
+      </View>
+    </>
   );
 };
 

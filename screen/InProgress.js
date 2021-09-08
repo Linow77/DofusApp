@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import Task from "../components/Task";
+import NavBar from "../components/NavBar";
 
 const InProgress = () => {
   const [task, setTask] = useState("");
@@ -25,6 +26,7 @@ const InProgress = () => {
 
   return (
     <>
+      <NavBar />
       <ScrollView style={styles.scrollView}>
         <View style={styles.screen}>
           <View style={styles.tasksSection}>

@@ -1,12 +1,16 @@
 import React from "react";
 
 import { StyleSheet, View, Text } from "react-native";
+import NavBar from "../components/NavBar";
 
-const Finished = () => {
+const Done = () => {
   return (
-    <View style={styles.screen}>
-      <Text>coucou loooooooo</Text>
-    </View>
+    <>
+      <NavBar />
+      <View style={styles.screen}>
+        <Text>coucou loooooooo</Text>
+      </View>
+    </>
   );
 };
 
@@ -18,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Finished;
+export default Done;

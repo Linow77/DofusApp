@@ -19,15 +19,15 @@ const NavBar = () => {
         )}
       </Link>
 
-      <Link to="/" underlayColor="#E8EAED">
-        {location.pathname === "/" ? (
+      <Link to="/inProgress" underlayColor="#E8EAED">
+        {location.pathname === "/inProgress" ? (
           <Text style={styles.activenavItem}>En cours</Text>
         ) : (
           <Text style={styles.navItem}>En cours</Text>
         )}
       </Link>
-      <Link to="/finished" underlayColor="#E8EAED">
-        {location.pathname === "/finished" ? (
+      <Link to="/done" underlayColor="#E8EAED">
+        {location.pathname === "/done" ? (
           <Text style={styles.activenavItem}>Terminées</Text>
         ) : (
           <Text style={styles.navItem}>Terminées</Text>

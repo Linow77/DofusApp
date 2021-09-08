@@ -5,8 +5,9 @@ import { NativeRouter, Route, Link } from "react-router-native";
 
 import InProgress from "./screen/InProgress";
 import Infos from "./screen/Infos";
-import Finished from "./screen/Finished";
-import NavBar from "./components/NavBar";
+import Done from "./screen/Done";
+
+import Home from "./screen/Home";
 
 const { StatusBarManager } = NativeModules;
 const STATUSBAR_HEIGHT = Platform.OS === "ios" ? 20 : StatusBarManager.HEIGHT;
@@ -15,11 +16,10 @@ export default function App() {
   return (
     <NativeRouter>
       <View style={styles.container}>
-        <NavBar></NavBar>
-
-        <Route exact path="/" component={InProgress} />
+        <Route exact path="/" component={Home} />
+        <Route path="/inProgress" component={InProgress} />
         <Route path="/infos" component={Infos} />
-        <Route path="/finished" component={Finished} />
+        <Route path="/done" component={Done} />
       </View>
     </NativeRouter>
   );
