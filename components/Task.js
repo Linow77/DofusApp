@@ -7,7 +7,7 @@ const Task = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>{text}</Text>
+      <Text>coucou {text}</Text>
     </View>
   );
 };
