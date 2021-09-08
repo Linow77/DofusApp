@@ -50,8 +50,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: "center",
     width: "100%",
-    borderColor: "green",
-    borderWidth: 5,
   },
 
   title: {
@@ -61,8 +59,6 @@ const styles = StyleSheet.create({
   tasksSection: {
     marginTop: 5,
     width: "100%",
-    borderColor: "tomato",
-    borderWidth: 5,
   },
   addTaskSection: {
     flexDirection: "row",
