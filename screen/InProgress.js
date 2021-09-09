@@ -12,7 +12,11 @@ import {
 import Task from "../components/Task";
 import NavBar from "../components/NavBar";
 
+//utils
+//import jsonReader from "../utils/readFile";
+
 const InProgress = () => {
+  //a supprimer
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
@@ -23,7 +27,17 @@ const InProgress = () => {
     setTasks([...tasks, task]);
     setTask("");
   };
+  //
 
+  /*//get inProgress tasks
+  jsonReader("../data/admin.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
+  */
   return (
     <>
       <NavBar />

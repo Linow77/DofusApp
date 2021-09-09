@@ -14,6 +14,7 @@ import { useHistory } from "react-router-native";
 const Home = () => {
   const data = require("../data/admin.json");
   const users = data.users;
+  console.log(users);
   const history = useHistory();
 
   const [modalVisible, setModalVisible] = useState(false);
