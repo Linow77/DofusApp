@@ -3,11 +3,12 @@ import { StyleSheet, View, NativeModules } from "react-native";
 
 import { NativeRouter, Route, Link } from "react-router-native";
 
+import Home from "./screen/Home";
 import InProgress from "./screen/InProgress";
 import Infos from "./screen/Infos";
 import Done from "./screen/Done";
-
-import Home from "./screen/Home";
+import AddTask from "./screen/AddTask";
+import UpdateTask from "./screen/UpdateTask";
 
 const { StatusBarManager } = NativeModules;
 const STATUSBAR_HEIGHT = Platform.OS === "ios" ? 20 : StatusBarManager.HEIGHT;
@@ -20,6 +21,8 @@ export default function App() {
         <Route path="/inProgress" component={InProgress} />
         <Route path="/infos" component={Infos} />
         <Route path="/done" component={Done} />
+        <Route path="/addTask" component={AddTask} />
+        <Route path="/updateTask:id" component={UpdateTask} />
       </View>
     </NativeRouter>
   );

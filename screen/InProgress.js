@@ -4,14 +4,14 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
-  TouchableOpacity,
   ScrollView,
+  TouchableHighlight,
 } from "react-native";
 
 import Task from "../components/Task";
 import NavBar from "../components/NavBar";
 
+import { useHistory } from "react-router";
 //utils
 //import jsonReader from "../utils/readFile";
 
@@ -28,6 +28,8 @@ const InProgress = () => {
     setTask("");
   };
   //
+
+  const history = useHistory();
 
   /*//get inProgress tasks
   jsonReader("../data/admin.json", (err, data) => {
@@ -50,17 +52,30 @@ const InProgress = () => {
           </View>
         </View>
       </ScrollView>
-      <View style={styles.addTaskSection}>
-        <TextInput
-          style={styles.addInput}
-          onChangeText={(text) => onChangeInput(text)}
-          value={task}
-          placeholder="ajouter une tâche"
-        />
-        <TouchableOpacity style={styles.addButton} onPress={() => createTask()}>
-          <Text style={styles.addText}>+</Text>
-        </TouchableOpacity>
-      </View>
+
+      <TouchableHighlight
+        style={styles.deleteButton}
+        onPress={() => createTask()}
+        underlayColor="#E8EAED"
+        activeOpacity={0.6}
+      >
+        <View style={styles.deleteSign}>
+          <View style={styles.rectangle}></View>
+          <View style={styles.rectangle2}></View>
+        </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        style={styles.addButton}
+        onPress={() => history.push("/addTask")}
+        underlayColor="#E8EAED"
+        activeOpacity={0.6}
+      >
+        <View style={styles.addSign}>
+          <View style={styles.rectangle3}></View>
+          <View style={styles.rectangle4}></View>
+        </View>
+      </TouchableHighlight>
     </>
   );
 };
@@ -72,7 +87,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   scrollView: {
-    width: "100%",
+    width: "100%", //utile ?
   },
   title: {
     fontSize: 20,
@@ -82,29 +97,85 @@ const styles = StyleSheet.create({
     marginTop: 5,
     width: "100%",
   },
-  addTaskSection: {
-    flexDirection: "row",
-    position: "absolute",
-    justifyContent: "space-between",
-    bottom: 15,
-    width: "100%",
-  },
-  addInput: {
-    backgroundColor: "#CED3DC",
-    width: "70%",
-    borderRadius: 10,
-  },
   addButton: {
-    backgroundColor: "#4E8098",
-
+    position: "absolute",
+    bottom: 15,
+    right: 15,
+    backgroundColor: "#F6F6F6",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 100,
-    padding: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+    elevation: 17,
+  },
+  deleteButton: {
+    position: "absolute",
+    bottom: 15,
+    left: 15,
+    backgroundColor: "#F6F6F6",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+    elevation: 17,
   },
   addText: {
     fontSize: 25,
-    color: "#CED3DC",
+    color: "#4BB3FD",
+  },
+  deleteSign: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  rectangle: {
+    position: "absolute",
+    height: 3,
+    width: 21.5,
+    transform: [{ rotate: "45deg" }],
+    backgroundColor: "#E94F37",
+  },
+  rectangle2: {
+    position: "absolute",
+    width: 3,
+    height: 21.5,
+    backgroundColor: "#E94F37",
+    transform: [{ rotate: "45deg" }],
+  },
+  addSign: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  rectangle3: {
+    position: "absolute",
+    height: 3,
+    width: 21.5,
+    backgroundColor: "#4BB3FD",
+  },
+  rectangle4: {
+    position: "absolute",
+    width: 3,
+    height: 21.5,
+    backgroundColor: "#4BB3FD",
   },
 });
 
