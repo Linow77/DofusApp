@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   StyleSheet,
@@ -12,50 +12,44 @@ import Task from "../components/Task";
 import NavBar from "../components/NavBar";
 
 import { useHistory } from "react-router";
+
 //utils
-//import jsonReader from "../utils/readFile";
+import { clearAsyncStorage,getData } from "../utils/asyncStorage";
 
 const InProgress = () => {
-  //a supprimer
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
-
-  const onChangeInput = (text) => {
-    setTask(text);
-  };
-  const createTask = () => {
-    setTasks([...tasks, task]);
-    setTask("");
-  };
-  //
+  const [task, setTask] = useState(null)
 
   const history = useHistory();
 
-  /*//get inProgress tasks
-  jsonReader("../data/admin.json", (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data);
-    }
-  });
-  */
+  const deleteTask = () => {
+    clearAsyncStorage()
+    getData(setTask)
+  }
+
+  
+  //get all data
+  useEffect(() => {
+    getData(setTask)
+  }, [])
+  
+
   return (
     <>
       <NavBar />
       <ScrollView style={styles.scrollView}>
         <View style={styles.screen}>
           <View style={styles.tasksSection}>
-            {tasks.map((item, index) => {
-              return <Task key={index} text={item} />;
-            })}
+            {task != null ?  task.map((item, index) => {
+              return <Task key={index} number={item.number} race={item.name} />;
+            }): null }
           </View>
         </View>
       </ScrollView>
 
       <TouchableHighlight
         style={styles.deleteButton}
-        onPress={() => createTask()}
+        onPress={() => deleteTask()
+          }
         underlayColor="#E8EAED"
         activeOpacity={0.6}
       >

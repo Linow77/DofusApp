@@ -8,15 +8,15 @@ import clock from "../assets/content/clock.png";
 import wheel from "../assets/content/wheel.png";
 
 const Task = (props) => {
-  const { text } = props;
+  const { number,race } = props;
 
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>
         <Image style={styles.imageLogo} source={dd} />
-        <Text style={styles.imageText}>125{text}</Text>
+        <Text style={styles.imageText}>{number}</Text>
       </View>
-      <Text style={styles.raceText}>Emeraude et Turquoise {text}</Text>
+      <Text style={styles.raceText}>{race}</Text>
       <View style={styles.timeView}>
         <Text style={styles.timeText}>2j 13h</Text>
         <Image style={styles.timeImage} source={clock} />

@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "DofusApp",
+    "name": "Dofus App",
     "slug": "DofusApp",
+    "privacy": "public",
+    "description": "A simple mobile app to manage your Dragodinde on Dofus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

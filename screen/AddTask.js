@@ -17,8 +17,21 @@ import Check from "../assets/content/check.png";
 
 import ModalDropdown from "react-native-modal-dropdown";
 
+import {storeData} from "../utils/asyncStorage"
+
+//unique id
+import uuid from 'react-native-uuid';
+
+
 const AddTask = () => {
   const history = useHistory();
+
+  const createTask = () => {
+    //uuid create uique id
+    storeData(uuid.v4(),4,"dd prune",10)
+    history.push("/inProgress")
+
+  }
   return (
     <View style={styles.screen}>
       <TouchableHighlight
@@ -53,7 +66,7 @@ const AddTask = () => {
 
       <TouchableHighlight
         style={styles.confirmButton}
-        onPress={() => history.push("/inProgress")}
+        onPress={() => createTask()}
         underlayColor="#E8EAED"
         activeOpacity={0.6}
       >
